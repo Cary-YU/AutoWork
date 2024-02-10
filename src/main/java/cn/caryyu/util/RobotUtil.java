@@ -2,6 +2,7 @@ package cn.caryyu.util;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 
 public class RobotUtil {
 
@@ -72,4 +73,8 @@ public class RobotUtil {
         robot.delay(1000);
     }
 
+    // 截图
+    public static BufferedImage createScreenCapture(Robot robot, Rectangle screenRect){
+        return robot.createScreenCapture(screenRect);
+    }
 }

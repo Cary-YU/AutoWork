@@ -1,5 +1,7 @@
 package cn.caryyu.core;
 
+import cn.caryyu.entity.PositionObject;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -14,7 +16,7 @@ public class Calculate {
      * @param t
      * @return
      */
-    public static double getLoss(int x, int y, BufferedImage image, BufferedImage t) {
+    private static double getLoss(int x, int y, BufferedImage image, BufferedImage t) {
         double loss = 0;
         for (int m = 0; m < t.getWidth(); m++) {
             for (int n = 0; n < t.getHeight(); n++) {
@@ -29,5 +31,17 @@ public class Calculate {
             }
         }
         return loss;
+    }
+
+    public static PositionObject calcPositionObject(BufferedImage image, BufferedImage t){
+        for (int x = 0; x < image.getWidth(); ++x) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                double loss = Calculate.getLoss(x, y, image, t);
+                if (loss < 30) {
+                    return new PositionObject(x,y,loss);
+                }
+            }
+        }
+        return null;
     }
 }
