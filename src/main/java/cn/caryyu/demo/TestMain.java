@@ -27,8 +27,8 @@ public class TestMain {
         RobotUtil.enter(robot);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         BufferedImage image = RobotUtil.createScreenCapture(robot,new Rectangle(screenSize));
-        File file = new File("./src/main/resources/photos/test.png");
-        ImageIO.write(image, "png", file);
+//        File file = new File("./src/main/resources/photos/test.png");
+//        ImageIO.write(image, "png", file);
         BufferedImage t = ImageIO.read(new File("./src/main/resources/photos/t.jpg"));
         PositionObject positionObject = Calculate.calcPositionObject(image, t);
         if (positionObject == null){
